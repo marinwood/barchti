@@ -1,3 +1,3 @@
-echo "Add xmlstarlet needed for updating fonts via Omarchy menu"
+echo "Add xmlstarlet needed for updating fonts via bArchTi menu"
 
-omarchy-pkg-add xmlstarlet
+barchti-pkg-add xmlstarlet

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Overwrite the user configs for swayosd (controls on-screen feedback for changing volume/songs etc) with the bArchTi defaults and restart the service.
+
+barchti-refresh-config swayosd/config.toml
+barchti-refresh-config swayosd/style.css
+barchti-restart-swayosd

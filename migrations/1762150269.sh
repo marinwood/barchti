@@ -1,2 +1,2 @@
-echo "Install omarchy-walker meta package"
-omarchy-pkg-add omarchy-walker
+echo "Install barchti-walker meta package"
+barchti-pkg-add barchti-walker

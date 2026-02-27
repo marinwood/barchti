@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+# Ensure screensaver/sleep doesn't set in during updates
+hyprctl dispatch tagwindow +noidle &> /dev/null || true
+
+# Capture update logs
+exec > >(tee "/tmp/barchti-update.log") 2>&1
+
+# Perform all update steps
+barchti-update-time
+barchti-update-keyring
+barchti-update-available-reset
+barchti-update-system-pkgs
+barchti-migrate
+barchti-update-aur-pkgs
+barchti-update-orphan-pkgs
+barchti-hook post-update
+
+barchti-update-analyze-logs
+
+barchti-update-restart
+
+# Re-enable screensaver/sleep after updates
+hyprctl dispatch tagwindow -- -noidle &> /dev/null || true

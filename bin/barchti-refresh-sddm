@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Refresh the SDDM theme from default
+
+sudo rm -rf /usr/share/sddm/themes/barchti
+sudo cp -r $BARCHTI_PATH/default/sddm/barchti /usr/share/sddm/themes/barchti

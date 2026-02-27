@@ -1,0 +1,6 @@
+[SddmGreeterTheme]
+Name=bArchTi
+Description=Minimal terminal-style login theme matching the Limine bootloader aesthetic
+Author=bArchTi
+Type=sddm-theme
+Version=1.0

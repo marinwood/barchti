@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Reload btop configuration (used by the bArchTi theme switching).
+
+pkill -SIGUSR2 btop

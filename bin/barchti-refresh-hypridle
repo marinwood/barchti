@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Overwrite the user config for hypridle with the bArchTi default and restart the service.
+
+barchti-refresh-config hypr/hypridle.conf
+barchti-restart-hypridle

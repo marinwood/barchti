@@ -1,2 +1,2 @@
-echo "Install expac and inxi for omarchy-debug"
-omarchy-pkg-add expac inxi
+echo "Install expac and inxi for barchti-debug"
+barchti-pkg-add expac inxi

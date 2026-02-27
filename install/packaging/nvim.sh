@@ -1,2 +1,2 @@
 # Includes lazyvim and the themes
-omarchy-nvim-setup
+barchti-nvim-setup

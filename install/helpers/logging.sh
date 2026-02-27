@@ -16,7 +16,7 @@ start_log_output() {
 
     while true; do
       # Read the last N lines into an array
-      mapfile -t current_lines < <(tail -n $log_lines "$OMARCHY_INSTALL_LOG_FILE" 2>/dev/null)
+      mapfile -t current_lines < <(tail -n $log_lines "$BARCHTI_INSTALL_LOG_FILE" 2>/dev/null)
 
       # Build complete output buffer with escape sequences
       output=""
@@ -53,12 +53,12 @@ stop_log_output() {
 }
 
 start_install_log() {
-  sudo touch "$OMARCHY_INSTALL_LOG_FILE"
-  sudo chmod 666 "$OMARCHY_INSTALL_LOG_FILE"
+  sudo touch "$BARCHTI_INSTALL_LOG_FILE"
+  sudo chmod 666 "$BARCHTI_INSTALL_LOG_FILE"
 
-  export OMARCHY_START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+  export BARCHTI_START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 
-  echo "=== Omarchy Installation Started: $OMARCHY_START_TIME ===" >>"$OMARCHY_INSTALL_LOG_FILE"
+  echo "=== bArchTi Installation Started: $BARCHTI_START_TIME ===" >>"$BARCHTI_INSTALL_LOG_FILE"
   start_log_output
 }
 
@@ -66,11 +66,11 @@ stop_install_log() {
   stop_log_output
   show_cursor
 
-  if [[ -n ${OMARCHY_INSTALL_LOG_FILE:-} ]]; then
-    OMARCHY_END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
-    echo "=== Omarchy Installation Completed: $OMARCHY_END_TIME ===" >>"$OMARCHY_INSTALL_LOG_FILE"
-    echo "" >>"$OMARCHY_INSTALL_LOG_FILE"
-    echo "=== Installation Time Summary ===" >>"$OMARCHY_INSTALL_LOG_FILE"
+  if [[ -n ${BARCHTI_INSTALL_LOG_FILE:-} ]]; then
+    BARCHTI_END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+    echo "=== bArchTi Installation Completed: $BARCHTI_END_TIME ===" >>"$BARCHTI_INSTALL_LOG_FILE"
+    echo "" >>"$BARCHTI_INSTALL_LOG_FILE"
+    echo "=== Installation Time Summary ===" >>"$BARCHTI_INSTALL_LOG_FILE"
 
     if [[ -f "/var/log/archinstall/install.log" ]]; then
       ARCHINSTALL_START=$(grep -m1 '^\[' /var/log/archinstall/install.log 2>/dev/null | sed 's/^\[\([^]]*\)\].*/\1/' || true)
@@ -84,30 +84,30 @@ stop_install_log() {
         ARCH_MINS=$((ARCH_DURATION / 60))
         ARCH_SECS=$((ARCH_DURATION % 60))
 
-        echo "Archinstall: ${ARCH_MINS}m ${ARCH_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+        echo "Archinstall: ${ARCH_MINS}m ${ARCH_SECS}s" >>"$BARCHTI_INSTALL_LOG_FILE"
       fi
     fi
 
-    if [[ -n $OMARCHY_START_TIME ]]; then
-      OMARCHY_START_EPOCH=$(date -d "$OMARCHY_START_TIME" +%s)
-      OMARCHY_END_EPOCH=$(date -d "$OMARCHY_END_TIME" +%s)
-      OMARCHY_DURATION=$((OMARCHY_END_EPOCH - OMARCHY_START_EPOCH))
+    if [[ -n $BARCHTI_START_TIME ]]; then
+      BARCHTI_START_EPOCH=$(date -d "$BARCHTI_START_TIME" +%s)
+      BARCHTI_END_EPOCH=$(date -d "$BARCHTI_END_TIME" +%s)
+      BARCHTI_DURATION=$((BARCHTI_END_EPOCH - BARCHTI_START_EPOCH))
 
-      OMARCHY_MINS=$((OMARCHY_DURATION / 60))
-      OMARCHY_SECS=$((OMARCHY_DURATION % 60))
+      BARCHTI_MINS=$((BARCHTI_DURATION / 60))
+      BARCHTI_SECS=$((BARCHTI_DURATION % 60))
 
-      echo "Omarchy:     ${OMARCHY_MINS}m ${OMARCHY_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+      echo "bArchTi:     ${BARCHTI_MINS}m ${BARCHTI_SECS}s" >>"$BARCHTI_INSTALL_LOG_FILE"
 
       if [[ -n $ARCH_DURATION ]]; then
-        TOTAL_DURATION=$((ARCH_DURATION + OMARCHY_DURATION))
+        TOTAL_DURATION=$((ARCH_DURATION + BARCHTI_DURATION))
         TOTAL_MINS=$((TOTAL_DURATION / 60))
         TOTAL_SECS=$((TOTAL_DURATION % 60))
-        echo "Total:       ${TOTAL_MINS}m ${TOTAL_SECS}s" >>"$OMARCHY_INSTALL_LOG_FILE"
+        echo "Total:       ${TOTAL_MINS}m ${TOTAL_SECS}s" >>"$BARCHTI_INSTALL_LOG_FILE"
       fi
     fi
-    echo "=================================" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "=================================" >>"$BARCHTI_INSTALL_LOG_FILE"
 
-    echo "Rebooting system..." >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "Rebooting system..." >>"$BARCHTI_INSTALL_LOG_FILE"
   fi
 }
 
@@ -116,18 +116,18 @@ run_logged() {
 
   export CURRENT_SCRIPT="$script"
 
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting: $script" >>"$BARCHTI_INSTALL_LOG_FILE"
 
   # Use bash -c to create a clean subshell
-  bash -c "source '$script'" </dev/null >>"$OMARCHY_INSTALL_LOG_FILE" 2>&1
+  bash -c "source '$script'" </dev/null >>"$BARCHTI_INSTALL_LOG_FILE" 2>&1
 
   local exit_code=$?
 
   if (( exit_code == 0 )); then
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Completed: $script" >>"$BARCHTI_INSTALL_LOG_FILE"
     unset CURRENT_SCRIPT
   else
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$OMARCHY_INSTALL_LOG_FILE"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Failed: $script (exit code: $exit_code)" >>"$BARCHTI_INSTALL_LOG_FILE"
   fi
 
   return $exit_code

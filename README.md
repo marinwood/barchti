@@ -1,9 +1,9 @@
-# Omarchy
+# bArchTi
 
-Omarchy is a beautiful, modern & opinionated Linux distribution by DHH.
+bArchTi is a beautiful, modern & opinionated Linux distribution by DHH.
 
-Read more at [omarchy.org](https://omarchy.org).
+Read more at [barchti.org](https://barchti.org).
 
 ## License
 
-Omarchy is released under the [MIT License](https://opensource.org/licenses/MIT).
+bArchTi is released under the [MIT License](https://opensource.org/licenses/MIT).

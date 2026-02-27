@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+echo -e "\e[32mUpdate bArchTi\e[0m"
+
+git -C $BARCHTI_PATH pull --autostash
+git -C $BARCHTI_PATH --no-pager diff --check || git -C $BARCHTI_PATH reset --merge

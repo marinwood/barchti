@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+# Reinstall the bArchTi configuration directory from the git source.
+
+git clone "https://github.com/marinwood/barchti.git" ~/.local/share/barchti-new >/dev/null
+mv $BARCHTI_PATH ~/.local/share/barchti-old
+mv ~/.local/share/barchti-new $BARCHTI_PATH

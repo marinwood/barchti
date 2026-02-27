@@ -1,3 +1,3 @@
-echo "Install Aether for Omarchy theme creation"
+echo "Install Aether for bArchTi theme creation"
 
-omarchy-pkg-add aether
+barchti-pkg-add aether

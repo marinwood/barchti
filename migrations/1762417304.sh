@@ -1,8 +1,8 @@
 echo "Replace bluetooth GUI with TUI"
 
-omarchy-pkg-add bluetui
-omarchy-pkg-drop blueberry
+barchti-pkg-add bluetui
+barchti-pkg-drop blueberry
 
-if ! grep -q "omarchy-launch-bluetooth" ~/.config/waybar/config.jsonc; then
-  sed -i 's/blueberry/omarchy-launch-bluetooth/' ~/.config/waybar/config.jsonc
+if ! grep -q "barchti-launch-bluetooth" ~/.config/waybar/config.jsonc; then
+  sed -i 's/blueberry/barchti-launch-bluetooth/' ~/.config/waybar/config.jsonc
 fi

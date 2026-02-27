@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+echo -e "\e[32mUpdate Firmware\e[0m"
+
+if barchti-cmd-missing fwupdmgr; then
+  barchti-pkg-add fwupd
+fi
+
+fwupdmgr refresh --force
+sudo fwupdmgr update

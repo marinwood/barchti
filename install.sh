@@ -3,16 +3,16 @@
 # Exit immediately if a command exits with a non-zero status
 set -eEo pipefail
 
-# Define Omarchy locations
-export OMARCHY_PATH="$HOME/.local/share/omarchy"
-export OMARCHY_INSTALL="$OMARCHY_PATH/install"
-export OMARCHY_INSTALL_LOG_FILE="/var/log/omarchy-install.log"
-export PATH="$OMARCHY_PATH/bin:$PATH"
+# Define bArchTi locations
+export BARCHTI_PATH="$HOME/.local/share/barchti"
+export BARCHTI_INSTALL="$BARCHTI_PATH/install"
+export BARCHTI_INSTALL_LOG_FILE="/var/log/barchti-install.log"
+export PATH="$BARCHTI_PATH/bin:$PATH"
 
 # Install
-source "$OMARCHY_INSTALL/helpers/all.sh"
-source "$OMARCHY_INSTALL/preflight/all.sh"
-source "$OMARCHY_INSTALL/packaging/all.sh"
-source "$OMARCHY_INSTALL/config/all.sh"
-source "$OMARCHY_INSTALL/login/all.sh"
-source "$OMARCHY_INSTALL/post-install/all.sh"
+source "$BARCHTI_INSTALL/helpers/all.sh"
+source "$BARCHTI_INSTALL/preflight/all.sh"
+source "$BARCHTI_INSTALL/packaging/all.sh"
+source "$BARCHTI_INSTALL/config/all.sh"
+source "$BARCHTI_INSTALL/login/all.sh"
+source "$BARCHTI_INSTALL/post-install/all.sh"

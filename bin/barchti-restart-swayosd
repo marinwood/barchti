@@ -1,0 +1,3 @@
+#!/bin/bash
+
+barchti-restart-app swayosd-server

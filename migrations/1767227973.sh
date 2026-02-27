@@ -1,3 +1,3 @@
-echo "Replace Waybar omarchy-launch-or-focus-tui wiremix with omarchy-launch-audio"
+echo "Replace Waybar barchti-launch-or-focus-tui wiremix with barchti-launch-audio"
 
-sed -i 's/omarchy-launch-or-focus-tui wiremix/omarchy-launch-audio/g' ~/.config/waybar/config.jsonc
+sed -i 's/barchti-launch-or-focus-tui wiremix/barchti-launch-audio/g' ~/.config/waybar/config.jsonc
