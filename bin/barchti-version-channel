@@ -1,20 +1,20 @@
 #!/bin/bash
 
-if grep -q "https://stable-mirror.barchti.org/" /etc/pacman.d/mirrorlist; then
+if grep -q "https://stable-mirror.omarchy.org/" /etc/pacman.d/mirrorlist; then
   mirror="stable"
-elif grep -q "https://rc-mirror.barchti.org/" /etc/pacman.d/mirrorlist; then
+elif grep -q "https://rc-mirror.omarchy.org/" /etc/pacman.d/mirrorlist; then
   mirror="rc"
-elif grep -q "https://mirror.barchti.org/" /etc/pacman.d/mirrorlist; then
+elif grep -q "https://mirror.omarchy.org/" /etc/pacman.d/mirrorlist; then
   mirror="edge"
 else
   mirror="unknown"
 fi
 
-if grep -q "https://pkgs.barchti.org/stable/" /etc/pacman.conf; then
+if grep -q "https://pkgs.omarchy.org/stable/" /etc/pacman.conf; then
   pkgs="stable"
-elif grep -q "https://pkgs.barchti.org/edge/" /etc/pacman.conf; then
+elif grep -q "https://pkgs.omarchy.org/edge/" /etc/pacman.conf; then
   pkgs="edge"
-elif grep -q "https://pkgs.barchti.org/rc/" /etc/pacman.conf; then
+elif grep -q "https://pkgs.omarchy.org/rc/" /etc/pacman.conf; then
   pkgs="rc"
 else
   pkgs="unknown"

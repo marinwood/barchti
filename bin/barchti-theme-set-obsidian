@@ -19,7 +19,7 @@ jq -r '.vaults | values[].path' ~/.config/obsidian/obsidian.json 2>/dev/null | w
   "minAppVersion": "0.16.0",
   "description": "Automatically syncs with your current bArchTi system theme colors and fonts",
   "author": "bArchTi",
-  "authorUrl": "https://barchti.org"
+  "authorUrl": "https://omarchy.org"
 }
 EOF
 

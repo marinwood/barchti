@@ -23,13 +23,13 @@ BARCHTI_REF="${BARCHTI_REF:-master}"
 # Set mirror based on branch
 if [[ $BARCHTI_REF == "dev" ]]; then
   export BARCHTI_MIRROR=edge
-  echo 'Server = https://mirror.barchti.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
+  echo 'Server = https://mirror.omarchy.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
 elif [[ $BARCHTI_REF == "rc" ]]; then
   export BARCHTI_MIRROR=rc
-  echo 'Server = https://rc-mirror.barchti.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
+  echo 'Server = https://rc-mirror.omarchy.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
 else
   export BARCHTI_MIRROR=stable
-  echo 'Server = https://stable-mirror.barchti.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
+  echo 'Server = https://stable-mirror.omarchy.org/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist >/dev/null
 fi
 
 sudo pacman -Syu --noconfirm --needed git

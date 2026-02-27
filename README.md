@@ -2,7 +2,7 @@
 
 bArchTi is a beautiful, modern & opinionated Linux distribution by DHH.
 
-Read more at [barchti.org](https://barchti.org).
+Read more at [omarchy.org](https://omarchy.org).
 
 ## License
 
