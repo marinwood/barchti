@@ -10,7 +10,7 @@ if [[ -n ${BARCHTI_ONLINE_INSTALL:-} ]]; then
   sudo pacman-key --lsign-key 40DFB630FF42BCFFB047046CF0134EE680CAC571
 
   sudo pacman -Sy
-  barchti-pkg-add barchti-keyring
+  barchti-pkg-add omarchy-keyring
 
   # Refresh all repos
   sudo pacman -Syyuu --noconfirm
